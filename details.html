@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+        table,th,td
+        {
+            border: 1px solid black;
+        }
+    </style>
+    <h1 align="center"><font size="40"></font></h1>
+    <script>
+    function show() {
+        let n=[];
+        let desc=[];
+        let mod=[];
+        let t=[];
+        let row;
+        let tbody= document.getElementById("trow");
+        for (let i=0; i<4;i++) {
+            console.log("1" + n[i], desc[i], mod[i], t[i])
+            n[i]=localStorage.getItem("name")
+            desc[i]=localStorage.getItem("Description")
+            mod[i]=localStorage.getItem("Model")
+            t[i]=localStorage.getItem("Type") 
+            row= "<tr>"
+            row = row+ "<td>"+n[i]+"</td>";
+            row = row+ "<td>"+desc[i]+"</td>";
+            row = row+ "<td>"+mod[i]+"</td>";
+            row = row+ "<td>"+t[i]+"</td>";
+            row= row + "</tr>";
+            tbody.innerHTML = row;
+        }
+     }
+</script>
+<script src="productjs.js"></script>
+</head>
+<body>
+
+<table>
+    <thead>
+           <tr>
+                    <th>Productname</th>
+                    <th>ProductDescription</th> 
+                    <th>Model</th>
+                    <th>Type</th>
+            </tr>
+    </thead>
+    <tbody  id="trow">
+
+    </tbody>
+</table>
+<button type="button" onClick="show()"> print</button>
+</body>
+</html> 
